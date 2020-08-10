@@ -17,7 +17,7 @@ void DFS (int x)
 
 int main()
 {
-    int v1, v2, n, m, x, y;
+    int n, m, x, y, component = 0;
     cin >> n >> m;
     for (int i = 0; i < m; i++)
     {
@@ -25,11 +25,14 @@ int main()
         adj[x].push_back (y);
         adj[y].push_back (x);
     }
-    cin >> v1 >> v2;
-    DFS (v1);
-    if (visited[v2] == 1 || v1 == v2)
-        cout << 1;
-    else
-        cout << 0;
+    for (int i = 1; i <= n; i++)
+    {
+        if (!visited[i])
+        {
+            DFS (i);
+            component++;
+        }
+    }
+    cout << component;
     return 0;
 }
