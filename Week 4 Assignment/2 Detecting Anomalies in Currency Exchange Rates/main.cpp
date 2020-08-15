@@ -1,48 +1,10 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-vector <long long> dist (100009, INT_MAX);
-vector <vector <pair <int, int>>> adj (100009);
-bool neg_cycle;
-
-void BellmanFord (int V)
+for (int i = 0; i < E; i++)
 {
-    dist[V] = 0;
-    for (int i = 0; i < V - 1; i++)
-    {
-        for (int k = 1; k <= V; k++)
-        {
-            for (size_t j = 0; j < adj[k].size(); j++)
-            {
-                int child = adj[k][j].second;
-                int weight = adj[k][j].first;
-                if (dist[child] > dist[k] + weight)
-                    dist[child] = dist[k] + weight;
-            }
-        }
-    }
-    for (int k = 1; k <= V; k++)
-    {
-        for (size_t j = 0; j < adj[k].size(); j++)
-        {
-            int child = adj[k][j].second;
-            int weight = adj[k][j].first;
-            if (dist[child] > dist[k] + weight)
-                neg_cycle = 1;
-        }
-    }
+    for (int j = 0; j < 3; j++)
+        cin >> graph[i][j];
 }
-int main()
+for (int j = 0; j < E; j++)
 {
-    int x, y, w, n, m;
-    cin >> n >> m;
-    for (int i = 0; i < m; i++)
-    {
-        cin >> x >> y >> w;
-        adj[x].push_back (make_pair (w, y));
-    }
-    BellmanFord (n);
-    cout << neg_cycle;
-    return 0;
+    if (dis[graph[j][0]] + graph[j][2] < dis[graph[j][1]])
+        dis[graph[j][1]] = dis[graph[j][0]] + graph[j][2];
 }
