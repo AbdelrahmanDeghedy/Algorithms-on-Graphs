@@ -88,7 +88,7 @@ void BellmanFord (int V, int s)
         {
             int child = adj[k][j].second;
             int weight = adj[k][j].first;
-            if (dist[child] > dist[k] + weight && dist[k] != numeric_limits<long long>::max())
+            if (dist[child] > dist[k] + weight)
             {
                 neg_cycle = 1;
                 ForBFS.push_back (child);
