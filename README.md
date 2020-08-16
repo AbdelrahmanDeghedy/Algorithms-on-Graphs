@@ -1,6 +1,4 @@
 # Algorithms-on-Graphs
-Algorithms on Graphs
-
 
 This repository will contain my solutions for the "Algorithms on Graphs" course that was created by UC San Diego and delivered through Coursera. I will provide my solutions in C++.
 
